@@ -49,15 +49,15 @@
           "tailwind-merge": "*",
           "tailwindcss": "*",
           "vaul": "^1.1.2"
-      "devDependencies": {
-  "@types/node": "^20.10.0",
-  "@vitejs/plugin-react-swc": "^3.10.2",
-  "vite": "6.3.5",
-  "postcss": "^8.4.38",
-  "autoprefixer": "^10.4.19"
-},
-      "scripts": {
-          "dev": "vite",
-          "build": "vite build"
-      }
+       "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@vitejs/plugin-react-swc": "^3.10.2",
+    "vite": "6.3.5",
+    "postcss": "^8.4.38",
+    "autoprefixer": "^10.4.19"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
   }
+
