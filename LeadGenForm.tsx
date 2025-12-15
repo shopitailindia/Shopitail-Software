@@ -1,15 +1,20 @@
 const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
 
+  const formDataToSend = new FormData();
+  formDataToSend.append("name", formData.name);
+  formDataToSend.append("phone", formData.phone);
+  formDataToSend.append("email", formData.email);
+  formDataToSend.append("orgType", formData.orgType);
+  formDataToSend.append("seats", formData.seats);
+  formDataToSend.append("message", formData.message);
+
   try {
     await fetch(
-      "https://script.google.com/macros/s/AKfycbwG254yNHbhODxVCtDR59PihPWNDDyPfM_3wVzkuQoF49cu3OuwBIgumEpNSA0uUhPT/exec",
+      "YOUR_LATEST_APPS_SCRIPT_WEB_APP_URL",
       {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
+        body: formDataToSend
       }
     );
 
@@ -20,12 +25,13 @@ const handleSubmit = async (e: React.FormEvent) => {
       email: "",
       orgType: "",
       seats: "",
-      message: "",
+      message: ""
     });
 
     setTimeout(() => setSubmitted(false), 3000);
-  } catch (error) {
+
+  } catch (err) {
     alert("Submission failed. Please try again.");
-    console.error(error);
+    console.error(err);
   }
 };
