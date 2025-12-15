@@ -1,21 +1,19 @@
 const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
 
-  const scriptUrl =
-    "https://script.google.com/macros/s/AKfycbxcHeiM1Zs77wZXBJER3NdoBk8BdfYyE0sA3C0wg2vYd43dd2KCRwxpYjFMLeJnJG0d/exec";
+  try {
+    await fetch(
+      "https://script.google.com/macros/s/AKfycbwG254yNHbhODxVCtDR59PihPWNDDyPfM_3wVzkuQoF49cu3OuwBIgumEpNSA0uUhPT/exec",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      }
+    );
 
-  await fetch(scriptUrl, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(formData),
-  });
-
-  setSubmitted(true);
-
-  setTimeout(() => {
-    setSubmitted(false);
+    setSubmitted(true);
     setFormData({
       name: "",
       phone: "",
@@ -24,5 +22,10 @@ const handleSubmit = async (e: React.FormEvent) => {
       seats: "",
       message: "",
     });
-  }, 3000);
+
+    setTimeout(() => setSubmitted(false), 3000);
+  } catch (error) {
+    alert("Submission failed. Please try again.");
+    console.error(error);
+  }
 };
