@@ -2,7 +2,7 @@ const handleSubmit = (e: React.FormEvent) => {
   e.preventDefault();
 
   const formUrl =
-    "https://docs.google.com/forms/d/e/1FAIpQLSffx1rSxkR7q_aL2T6F3aD_RSn9TmK64kNhEIeb1xSw_kqJAA/formResponse";
+    "https://docs.google.com/forms/d/e/1FAIpQLSffx1rSxkR7q_aL2T6F3aD_RSn9TmK64kNhEIeb1xSw_kqJAA/viewform?usp=dialog";
 
   const formData = new FormData();
   formData.append("entry.1636995483", formDataState.name);
