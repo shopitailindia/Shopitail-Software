@@ -1,20 +1,21 @@
 const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
 
-  const formDataToSend = new FormData();
-  formDataToSend.append("name", formData.name);
-  formDataToSend.append("phone", formData.phone);
-  formDataToSend.append("email", formData.email);
-  formDataToSend.append("orgType", formData.orgType);
-  formDataToSend.append("seats", formData.seats);
-  formDataToSend.append("message", formData.message);
+  const formBody = new URLSearchParams();
+  formBody.append("name", formData.name);
+  formBody.append("phone", formData.phone);
+  formBody.append("email", formData.email);
+  formBody.append("orgType", formData.orgType);
+  formBody.append("seats", formData.seats);
+  formBody.append("message", formData.message);
 
   try {
     await fetch(
-      "YOUR_LATEST_APPS_SCRIPT_WEB_APP_URL",
+      "https://script.google.com/macros/s/AKfycbzq5T0uhts7sYxES-Uw1NHLZdPHn6dIrx-ANK09UNtt9ExNXbEBTQS2fL2L1S3WD_-N/exec",
       {
         method: "POST",
-        body: formDataToSend
+        mode: "no-cors",
+        body: formBody
       }
     );
 
@@ -31,7 +32,7 @@ const handleSubmit = async (e: React.FormEvent) => {
     setTimeout(() => setSubmitted(false), 3000);
 
   } catch (err) {
-    alert("Submission failed. Please try again.");
     console.error(err);
+    alert("Submission failed");
   }
 };
