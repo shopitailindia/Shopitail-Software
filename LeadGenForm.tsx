@@ -11,7 +11,7 @@ const handleSubmit = async (e: React.FormEvent) => {
 
   try {
     await fetch(
-      "https://script.google.com/macros/s/AKfycbzq5T0uhts7sYxES-Uw1NHLZdPHn6dIrx-ANK09UNtt9ExNXbEBTQS2fL2L1S3WD_-N/exec",
+      "https://script.google.com/macros/library/d/1FS34RJn9av18SgbvKMIJrEqFzETACbPxtaU6f0nig2epRhx_4i3vGUfR/8",
       {
         method: "POST",
         mode: "no-cors",
